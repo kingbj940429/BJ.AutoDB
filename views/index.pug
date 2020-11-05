@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    .form_wrap
+        form(action="/connect" method="post")
+          .form_con
+              .form_label HOST
+              input(type="text" name="host" class="host" value="127.0.0.1")
+          .form_con
+              .form_label USER
+              input(type="text" name="user" class="user" value="bjgg")
+          .form_con
+              .form_label PASSWORD
+              input(type="password" name="password" class="password" value="jiwon1234")
+          .form_con      
+              .form_label SCHEMA
+              input(type="text" name="schema" class="schema" value="bjgg")
+          button(type="submit") 버튼
+

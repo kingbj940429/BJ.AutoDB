@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    input(type="hidden" name="host" class="host" value=host)
+    input(type="hidden" name="user" class="user" value=user)
+    input(type="hidden" name="password" class="password" value=password)
+    input(type="hidden" name="schema" class="schema" value=schema)
+    .form_wrap       
+        .form_con
+            .form_label 쿼리문
+            input(type="text" name="query" class="query" value="")
+            button(class='form_query') 버튼
+    
+    div.history
+        
+           
+

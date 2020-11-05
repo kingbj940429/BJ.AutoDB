@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://code.jquery.com/jquery-3.5.1.min.js')
+    script.
+      $(()=>{
+        $('.form_query').click((e)=>{
+              $.ajax({
+                  url : '/connect/success',
+                  type : 'POST',
+                  data : {
+                    host: $('.host').val(),
+                    user: $('.user').val(),
+                    password : $('.password').val(),
+                    schema : $('.schema').val(),
+                    query : $('.query').val(),
+                  },
+                  success : function(res){
+                      alert("요청성공");
+                      $('.history').append(res);
+                  },
+                  error : function(err){
+                      alert("요청 실패");
+                  }
+              });
+          });
+      });
+  body
+    block content
