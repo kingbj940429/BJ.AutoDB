@@ -50,7 +50,7 @@ router.post('/connect/success', async (req, res, err) => {
   };
   
   var temp = await dbPool(`${schema_info.query}`);
-  console.log("ajax로 받은것", temp);
+  //console.log("ajax로 받은것", temp);
   res.json(temp);
 });
 

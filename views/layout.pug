@@ -19,7 +19,10 @@ html
                   },
                   success : function(res){
                       alert("요청성공");
-                      $('.history').append(res);
+                      for(var data in res){
+                        var resultObj = res[data]
+                        $('.history').append(`${resultObj.name}<br>`);  
+                      }
                   },
                   error : function(err){
                       alert("요청 실패");

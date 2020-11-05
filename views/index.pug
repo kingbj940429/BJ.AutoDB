@@ -2,7 +2,7 @@ extends layout
 
 block content
     .form_wrap
-        form(action="/connect" method="post")
+        form(action="/" method="post" class="form")
           .form_con
               .form_label HOST
               input(type="text" name="host" class="host" value="127.0.0.1")
@@ -15,5 +15,14 @@ block content
           .form_con      
               .form_label SCHEMA
               input(type="text" name="schema" class="schema" value="bjgg")
-          button(type="submit") 버튼
+          button(type="submit" class="query") 버튼
+          button(type="submit" class='create_table') 테이블 생성
+          script.
+            $('.query').click((e)=>{
+              $('.form').attr("action","/connect");
+            })
+            $('.create_table').click((e)=>{
+              $('.form').attr("action","/create_table");
+            })
+
 
