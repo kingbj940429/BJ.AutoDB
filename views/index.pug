@@ -17,12 +17,16 @@ block content
               input(type="text" name="schema" class="schema" value="bjgg")
           button(type="submit" class="query") 버튼
           button(type="submit" class='create_table') 테이블 생성
+          button(type="submit" class='url_json') URL JSON형식 테이블 생성
           script.
             $('.query').click((e)=>{
               $('.form').attr("action","/connect");
             })
             $('.create_table').click((e)=>{
               $('.form').attr("action","/create_table");
+            })
+            $('.url_json').click((e)=>{
+              $('.form').attr("action","/url_json");
             })
 
 

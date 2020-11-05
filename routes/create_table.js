@@ -17,8 +17,9 @@ router.post('/success', async (req, res, err) => {
     //console.log(req.body['column[]']);
     var create_table_query = `CREATE TABLE ${req.body.table_name}(`
     var temp='';
+    
     for(var k in req.body['column[]']){
-        temp += req.body['column[]'][k] + " VARCHAR(100), ";
+        temp += req.body['column[]'][k] + " VARCHAR(1000), ";
     }
 
     temp = temp.trim();//양쪽 공백 제거
@@ -48,7 +49,7 @@ router.post('/success', async (req, res, err) => {
             return false;
         }
     };
-
+    console.log(create_table_query);
     await dbPool(create_table_query);
     res.json({title : 'title'});
 });

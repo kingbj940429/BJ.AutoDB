@@ -1,0 +1,75 @@
+extends layout
+
+block content
+    input(type="hidden" name="host" class="host" value=host)
+    input(type="hidden" name="user" class="user" value=user)
+    input(type="hidden" name="password" class="password" value=password)
+    input(type="hidden" name="schema" class="schema" value=schema)
+    .form_wrap       
+        .form_con
+            .form_label URL_JSON
+            input(type="text" name="url_json" class="url_json" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
+            .form_label 테이블 명
+            input(type="text" name="table_name" class="table_name" value="test")
+            .column
+                .form_label 값이 들어갈 테이블의 컬럼명
+                input(type="text" name="column0" class="column0" value="id")
+            .column    
+                .form_label 값이 들어갈 테이블의 컬럼명
+                input(type="text" name="column1" class="column1" value="name")            
+        button(class='url_json_btn') URL_JSON 형식을 테이블로 만들기
+        button(class='add_column') 컬럼 추가하기
+        script.
+            $(()=>{
+                /**
+                * 컬럼명 추가 버튼 눌렀을 때
+                */
+                cnt=2;
+                $('.add_column').click((e)=>{
+                    $('.form_con').append(`
+                    <div class="column">
+                        <div class="form_label">컬럼 명</div>
+                        <input type="text" name="column${cnt}" class="column${cnt}" value=""/>
+                    </div>
+                    `);
+                    cnt++;
+                });
+                /**
+                *   테이블로 자동 생성하기
+                */
+                $('.url_json_btn').click((e)=>{
+                    var temp = [];
+                        for(var k=0;k<cnt;k++){
+                            temp.push($(`.column${k}`).val());
+                        }
+                    $.ajax({
+                        type : 'POST',
+                        url : '/url_json/success',
+                        data : {
+                            host: $('.host').val(),
+                            user: $('.user').val(),
+                            password : $('.password').val(),
+                            schema : $('.schema').val(),
+                            url_json : $('.url_json').val(),
+                            table_name : $('.table_name').val(),
+                            column : temp,
+                        },
+                        success : function(res){
+                            alert("url_json 요청성공");
+                            for(var key in res){
+                                var keysObj = res[key];
+                                $('.history').append(key+"<br>");
+                            }
+                           
+                        },
+                        error : function(err){
+                            alert("url_json 요청실패");
+                        }
+                    });
+                });
+            });
+            
+    
+    div.history
+        
+           
