@@ -9,20 +9,18 @@ block content
         .form_con
             .form_label 테이블 명
             input(type="text" name="table_name" class="table_name" value="test")
-            .column
+            .column_first
                 .form_label 컬럼 명
                 input(type="text" name="column0" class="column0" value="id")
-            .column    
-                .form_label 컬럼 명
-                input(type="text" name="column1" class="column1" value="name")
         button(class='create_table') 테이블 생성하기
         button(class='add_column') 컬럼 추가하기
+        button(class='delete_column') 컬럼 삭제하기
             script.
                 $(()=>{
                     /**
                     * 컬럼명 추가 버튼 눌렀을 때
                     */
-                    cnt=2;
+                    cnt=1;
                     $('.add_column').click((e)=>{
                         $('.form_con').append(`
                         <div class="column">
@@ -31,6 +29,13 @@ block content
                         </div>
                         `);
                         cnt++;
+                    });
+                    /**
+                    * 컬럼명 삭제 버튼 눌렀을 때
+                    */
+                    $('.delete_column').click((e)=>{
+                        $('.column:last').remove("");
+                        if(cnt>1)cnt--;
                     });
                     /**
                     *   테이블 생성하기 버튼 눌렀을때
