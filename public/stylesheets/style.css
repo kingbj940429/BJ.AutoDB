@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+
+.input_100px{width: 100px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_200px{width: 200px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_300px{width: 300px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_400px{width: 400px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_500px{width: 500px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_600px{width: 600px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_700px{width: 700px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_800px{width: 800px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_900px{width: 900px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+
+
+/*
+* GNB
+*/
+.gnb_wrap{background-color: rgb(39, 135, 245);height:50px; width: 100%;}
+.gnb_con{}
+.gnb_inner{margin-top: 15px;}
+.gnb_a{margin: 5px;text-decoration:none;color: rgb(255,255,255);font-weight: 400;}

@@ -5,43 +5,52 @@ block content
     input(type="hidden" name="user" class="user" value=user)
     input(type="hidden" name="password" class="password" value=password)
     input(type="hidden" name="schema" class="schema" value=schema)
-    .form_wrap       
+    .form_wrap.mw-1200.col-center.col-12       
         .form_con
             .form_label URL_JSON
-            input(type="text" name="url_json" class="url_json" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
+            input(type="text" name="url_json" class="url_json input_600px" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
             .form_label 테이블 명
-            input(type="text" name="table_name" class="table_name" value="test")
-            .column
-                .form_label 값이 들어갈 테이블의 컬럼명
-                input(type="text" name="column0" class="column0" value="id")
-            .column    
-                .form_label 값이 들어갈 테이블의 컬럼명
-                input(type="text" name="column1" class="column1" value="name")            
-        button(class='url_json_btn') URL_JSON 형식을 테이블로 만들기
-        button(class='add_column') 컬럼 추가하기
+            input(type="text" name="table_name" class="table_name input_300px" value="test")
+            .form_label 기준 키값
+            input(type="text" name="standard_key" class="standard_key input_300px" value="data")
+            .column_first
+                .form_label 객체명
+                input(type="text" name="column0" class="column0 input_300px" value="id")       
+        button(class='url_json_btn_all') json 모든 객체명으로 데이터 INSERT
+        button(class='url_json_btn_part') 추가한 객체명에만 데이터 INSERT
+        button(class='add_column') 객체명 추가하기
+        button(class='delete_column') 객체명 삭제하기
         script.
             $(()=>{
                 /**
                 * 컬럼명 추가 버튼 눌렀을 때
                 */
-                cnt=2;
+                cnt=1;
                 $('.add_column').click((e)=>{
                     $('.form_con').append(`
                     <div class="column">
-                        <div class="form_label">컬럼 명</div>
-                        <input type="text" name="column${cnt}" class="column${cnt}" value=""/>
+                        <div class="form_label">객체명</div>
+                        <input type="text" name="column${cnt}" class="column${cnt} input_300px" value=""/>
                     </div>
                     `);
                     cnt++;
                 });
                 /**
-                *   테이블로 자동 생성하기
+                * 컬럼명 삭제 버튼 눌렀을 때
                 */
-                $('.url_json_btn').click((e)=>{
+                $('.delete_column').click((e)=>{
+                    $('.column:last').remove("");
+                    if(cnt>1)cnt--;
+                });
+                
+                /**
+                *  테이블의 모든 컬럼으로 데이터 삽입
+                */
+                $('.url_json_btn_all').click((e)=>{
                     var temp = [];
-                        for(var k=0;k<cnt;k++){
-                            temp.push($(`.column${k}`).val());
-                        }
+                    for(var k=0;k<cnt;k++){
+                        temp.push($(`.column${k}`).val());
+                    }
                     $.ajax({
                         type : 'POST',
                         url : '/url_json/success',
@@ -52,15 +61,47 @@ block content
                             schema : $('.schema').val(),
                             url_json : $('.url_json').val(),
                             table_name : $('.table_name').val(),
+                            standard_key : $('.standard_key').val(),
                             column : temp,
                         },
                         success : function(res){
-                            alert("url_json 요청성공");
-                            for(var key in res){
-                                var keysObj = res[key];
-                                $('.history').append(key+"<br>");
-                            }
-                           
+                            alert(`${res.query_status}`);
+                            $('.history').append(`${res.query_status}<br>`);
+                        },
+                        error : function(err){
+                            alert("url_json 요청실패");
+                        }
+                    });
+                });    
+                /**
+                *  추가한 컬럼으로만 데이터 삽입
+                */
+                $('.url_json_btn_part').click((e)=>{
+                    var temp;
+                    if(cnt != 1){
+                        temp = [];
+                        for(var k=0;k<cnt;k++){
+                            temp.push($(`.column${k}`).val());
+                        }
+                    }else{
+                        temp = $(`.column0`).val();
+                    }
+                    $.ajax({
+                        type : 'POST',
+                        url : '/url_json/success_part',
+                        data : {
+                            host: $('.host').val(),
+                            user: $('.user').val(),
+                            password : $('.password').val(),
+                            schema : $('.schema').val(),
+                            url_json : $('.url_json').val(),
+                            table_name : $('.table_name').val(),
+                            standard_key : $('.standard_key').val(),
+                            column : temp,
+                        },
+                        success : function(res){
+                            alert(`${res.query_status}`);
+                            $('.history').append(`${res.query_status}<br>`);
                         },
                         error : function(err){
                             alert("url_json 요청실패");
@@ -70,6 +111,6 @@ block content
             });
             
     
-    div.history
+    div.history.mw-1200.col-center.col-12    
         
            
