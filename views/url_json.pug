@@ -5,12 +5,14 @@ block content
     input(type="hidden" name="user" class="user" value=user)
     input(type="hidden" name="password" class="password" value=password)
     input(type="hidden" name="schema" class="schema" value=schema)
-    .form_wrap       
+    .form_wrap.mw-1200.col-center.col-12       
         .form_con
             .form_label URL_JSON
             input(type="text" name="url_json" class="url_json input_600px" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
             .form_label 테이블 명
             input(type="text" name="table_name" class="table_name input_300px" value="test")
+            .form_label 기준 키값
+            input(type="text" name="standard_key" class="standard_key input_300px" value="data")
             .column_first
                 .form_label 객체명
                 input(type="text" name="column0" class="column0 input_300px" value="id")       
@@ -40,6 +42,7 @@ block content
                     $('.column:last').remove("");
                     if(cnt>1)cnt--;
                 });
+                
                 /**
                 *  테이블의 모든 컬럼으로 데이터 삽입
                 */
@@ -58,6 +61,7 @@ block content
                             schema : $('.schema').val(),
                             url_json : $('.url_json').val(),
                             table_name : $('.table_name').val(),
+                            standard_key : $('.standard_key').val(),
                             column : temp,
                         },
                         success : function(res){
@@ -92,6 +96,7 @@ block content
                             schema : $('.schema').val(),
                             url_json : $('.url_json').val(),
                             table_name : $('.table_name').val(),
+                            standard_key : $('.standard_key').val(),
                             column : temp,
                         },
                         success : function(res){
@@ -106,6 +111,6 @@ block content
             });
             
     
-    div.history
+    div.history.mw-1200.col-center.col-12    
         
            
