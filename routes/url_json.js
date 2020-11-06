@@ -18,7 +18,8 @@ router.post('/', function (req, res, next) {
  * 모든 컬럼에 데이터 삽입
  */
 router.post('/success', async (req, res, err) => {
-     /**
+    const temp = await axios(req.body.url_json);
+    /**
      * DB 관련
      */
     const pool = mysql.createPool({
@@ -40,22 +41,40 @@ router.post('/success', async (req, res, err) => {
             return false;
         }
     };
+    
+    /**
+     * 모든 객체명에 맞게 테이블 생성
+     */
+    var str='';
+    var keys= [];
+    str = `CREATE TABLE ${req.body.table_name}(`
+    for(var key in temp){
+        var keyObj = temp[key];
+        for(var key2 in keyObj){
+            key2+="_bj";
+            keys.push(key2);
+            str += key2 + " VARCHAR(1000), ";
+        }
+        break;
+    }
+    str = str.trim();//양쪽 공백 제거
+    str = str.substr(0, str.length -1);//맨 뒤에 콤마 없애기  
+    str = str + ");"
+    await dbPool(str);
 
-    const temp = await axios(req.body.url_json);
-    //INSERT INTO 테이블명(컬럼,컬럼) VALUES ('','값');
+    /**
+     * 모든 객체명에 맞게 데이터 INSERT 실행
+     */
     var insert_query = `INSERT INTO ${req.body.table_name}(`;
 
     var str='';
     var keys= [];
-    // for(var k in req.body['column[]']){
-    //     str += req.body['column[]'][k] + ", ";
-    // }
+   
     for(var key in temp){
         var keyObj = temp[key];
         for(var key2 in keyObj){
-            var keyObj2 = temp[key2];
             keys.push(key2);
-            str += key2 + ", ";
+            str += key2 + "_bj, ";
         }
         break;
     }
@@ -76,13 +95,22 @@ router.post('/success', async (req, res, err) => {
         str2 = str2.trim();//양쪽 공백 제거
         str2 = str2.substr(0, str2.length -1);//맨 뒤에 콤마 없애기  
         insert_query = insert_query_front + str2 + ");"; 
-        insert_query = insert_query.replace("key","key_1");
-        insert_query = insert_query.replace("name","name_1");
-        insert_query = insert_query.replace("into","into_1");
-        await dbPool(`${insert_query}`);
+       
+        query_status = await dbPool(`${insert_query}`);
+        /**
+         * 쿼리 성공 / 실패 처리 관련
+        */
+        if(query_status == false){
+            query_status = '퀴리 오류! 다시 확인 해주세요';
+            res.json({query_status});
+            throw '퀴리 오류! 다시 확인 해주세요';
+        }else{
+            query_status = "쿼리 성공!";
+        }
+       
     }
-    console.log(insert_query);
-    res.json({title : 'title'});
+   
+    res.json({query_status});
 });
 
 /**
@@ -90,6 +118,7 @@ router.post('/success', async (req, res, err) => {
  */
 
 router.post('/success_part', async (req, res, err) => {
+    const temp = await axios(req.body.url_json);
     /**
     * DB 관련
     */
@@ -112,9 +141,13 @@ router.post('/success_part', async (req, res, err) => {
             return false;
         }
     };
+    /**
+     * 입력한 객체명에 맞게 테이블 생성
+     */
 
-    const temp = await axios(req.body.url_json);
-    //INSERT INTO 테이블명(컬럼,컬럼) VALUES ('','값');
+    /**
+     * 입력한 객체명에 맞게 데이터 INSERT 실행
+     */
     var insert_query_front = `INSERT INTO ${req.body.table_name}(`;
     var str = ''
     var keys = [];
@@ -144,14 +177,21 @@ router.post('/success_part', async (req, res, err) => {
         str2 = str2.trim();//양쪽 공백 제거
         str2 = str2.substr(0, str2.length -1);//맨 뒤에 콤마 없애기
         insert_query = insert_query_front + str2 + ');'
-        await dbPool(insert_query);
+        query_status = await dbPool(insert_query);
+        /**
+         * 쿼리 성공 / 실패 처리 관련
+        */
+        if(query_status == false){
+            query_status = '퀴리 오류! 다시 확인 해주세요';
+            res.json({query_status});
+            throw '퀴리 오류! 다시 확인 해주세요';
+        }else{
+            query_status = "쿼리 성공!";
+        }
     }
-    console.log(insert_query);
 
-//    str = str.trim();//양쪽 공백 제거
-//    str = str.substr(0, str.length -1);//맨 뒤에 콤마 없애기
-//    insert_query_front = insert_query+str+") VALUES (";
-    res.json({test:'test'});
+  
+    res.json({query_status});
 });
 
 

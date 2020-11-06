@@ -61,12 +61,8 @@ block content
                             column : temp,
                         },
                         success : function(res){
-                            alert("url_json 요청성공");
-                            for(var key in res){
-                                var keysObj = res[key];
-                                $('.history').append(key+"<br>");
-                            }
-                           
+                            alert(`${res.query_status}`);
+                            $('.history').append(`${res.query_status}<br>`);
                         },
                         error : function(err){
                             alert("url_json 요청실패");
@@ -99,12 +95,8 @@ block content
                             column : temp,
                         },
                         success : function(res){
-                            alert("url_json 요청성공");
-                            for(var key in res){
-                                var keysObj = res[key];
-                                $('.history').append(key+"<br>");
-                            }
-                           
+                            alert(`${res.query_status}`);
+                            $('.history').append(`${res.query_status}<br>`);
                         },
                         error : function(err){
                             alert("url_json 요청실패");
