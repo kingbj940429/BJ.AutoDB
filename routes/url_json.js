@@ -19,8 +19,9 @@ router.post('/', function (req, res, next) {
  * 모든 컬럼에 데이터 삽입
  */
 router.post('/success', async (req, res, err) => {
-    const temp = await axios(req.body.url_json, req.body.standard_key);
-   
+    
+    const temp = await axios(req.body.url_json, req.body.standard_key, req.body[`standard_key_child[]`]);
+    console.log(temp);
     /**
      * DB 관련
      */
@@ -51,7 +52,8 @@ router.post('/success', async (req, res, err) => {
     var keys= [];
     await dbPool(`DROP TABLE IF EXISTS ${req.body.table_name}`);
     
-    str = `CREATE TABLE ${req.body.table_name}(`
+    str = `CREATE TABLE ${req.body.table_name}(`;
+    
     for(var key in temp){
         var keyObj = temp[key];
         for(var key2 in keyObj){
@@ -61,10 +63,12 @@ router.post('/success', async (req, res, err) => {
         }
         break;
     }
+
+   
     str = str.trim();//양쪽 공백 제거
     str = str.substr(0, str.length -1);//맨 뒤에 콤마 없애기  
     str = str + ");"
-    
+    console.log(str);
     await dbPool(str);
 
     /**

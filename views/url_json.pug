@@ -11,25 +11,22 @@ block content
             input(type="text" name="url_json" class="url_json input_600px" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
             .form_label 테이블 명
             input(type="text" name="table_name" class="table_name input_300px" value="test")
-            .form_label 기준 키값
+            .form_label 기준 키값(최상위 부모)
             input(type="text" name="standard_key" class="standard_key input_300px" value="data")
-            .column_first
-                .form_label 객체명
-                input(type="text" name="column0" class="column0 input_300px" value="id")       
         button(class='url_json_btn_all') json 모든 객체명으로 데이터 INSERT
         button(class='url_json_btn_part') 추가한 객체명에만 데이터 INSERT
-        button(class='add_column') 객체명 추가하기
-        button(class='delete_column') 객체명 삭제하기
+        button(class='add_column') 기준 키값 추가하기
+        button(class='delete_column') 기준 키값 삭제하기
         script.
             $(()=>{
                 /**
                 * 컬럼명 추가 버튼 눌렀을 때
                 */
-                cnt=1;
+                cnt=0;
                 $('.add_column').click((e)=>{
                     $('.form_con').append(`
                     <div class="column">
-                        <div class="form_label">객체명</div>
+                        <div class="form_label">기준 키값(자식)</div>
                         <input type="text" name="column${cnt}" class="column${cnt} input_300px" value=""/>
                     </div>
                     `);
@@ -40,7 +37,7 @@ block content
                 */
                 $('.delete_column').click((e)=>{
                     $('.column:last').remove("");
-                    if(cnt>1)cnt--;
+                    if(cnt>0)cnt--;
                 });
                 
                 /**
@@ -62,7 +59,7 @@ block content
                             url_json : $('.url_json').val(),
                             table_name : $('.table_name').val(),
                             standard_key : $('.standard_key').val(),
-                            column : temp,
+                            standard_key_child : temp,
                         },
                         success : function(res){
                             alert(`${res.query_status}`);
