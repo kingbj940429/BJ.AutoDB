@@ -7,6 +7,7 @@ block content
     input(type="hidden" name="schema" class="schema" value=schema)
     .content_wrap
         .form_wrap.mw-1200.col-center.col-12       
+            .warning 최종 키값이 배열일 경우 접근 가능하지만,최종 키값의 직속 부모객체도 배열일 경우 그 값에 대한 접근은 불가능합니다.
             .form_con
                 .form_label URL_JSON
                 input(type="text" name="url_json" class="url_json input_600px" value="http://ddragon.leagueoflegends.com/cdn/10.22.1/data/ko_KR/champion.json")
@@ -14,10 +15,10 @@ block content
                 input(type="text" name="table_name" class="table_name input_300px" value="test")
                 .form_label 기준 키값(최상위 부모)
                 input(type="text" name="standard_key" class="standard_key input_300px" value="data")
-            .form_index    
-                .form_label 만약 최종 키 값이 배열이라면
-                input(type='number' name="key_index" class="key_index input_300px" value="" placeholder = "생성할 키 값의 배열 인덱스를 입력해주세요")
-            <!--button(class='url_json_btn_part') 추가한 객체명에만 데이터 INSERT-->
+            //- .form_index    
+            //-     .form_label 만약 최종 키 값이 배열이라면
+            //-     input(type='number' name="key_index" class="key_index input_300px" value="" placeholder = "생성할 키 값의 배열 인덱스를 입력해주세요")
+            //- button(class='url_json_btn_part') 추가한 객체명에만 데이터 INSERT
             button(class='add_column') 기준 키값 추가하기
             button(class='delete_column') 기준 키값 삭제하기
             .create_table_btn
