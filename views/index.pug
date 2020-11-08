@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  .content_wrap
     .form_wrap.col-12.mw-1200.col-center
         form(action="/" method="post" class="form")
           .form_con
@@ -18,15 +19,15 @@ block content
           button(type="submit" class="query") 버튼
           button(type="submit" class='create_table') 테이블 생성
           button(type="submit" class='url_json') URL JSON형식 테이블 생성
-          script.
-            $('.query').click((e)=>{
-              $('.form').attr("action","/connect");
-            })
-            $('.create_table').click((e)=>{
-              $('.form').attr("action","/create_table");
-            })
-            $('.url_json').click((e)=>{
-              $('.form').attr("action","/url_json");
-            })
+    script.
+      $('.query').click((e)=>{
+        $('.form').attr("action","/connect");
+      })
+      $('.create_table').click((e)=>{
+        $('.form').attr("action","/create_table");
+      })
+      $('.url_json').click((e)=>{
+        $('.form').attr("action","/url_json");
+      })
 
 

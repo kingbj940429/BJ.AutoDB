@@ -1,15 +1,13 @@
 const axios = require('axios');
 
-const Axios = async (url_json, standard_key, standard_key_child) => {
+const Axios = async (url_json, standard_key, standard_key_child, key_index) => {
   try {
     var result = await axios.get(url_json);
-    var CHECK = true;
-    test = result.data;
-    var graph= {};
-    
 
+    test = result.data;
+    
     if(Array.isArray(standard_key_child)==false && standard_key_child != undefined){
-      console.log("키값이 배열로 만들었습니다.");
+      console.log("키값을 배열로 만들었습니다.");
       var temp =[];
       temp.push(standard_key_child);
       standard_key_child = temp;
@@ -20,8 +18,19 @@ const Axios = async (url_json, standard_key, standard_key_child) => {
       for(var k=0;k< standard_key_child.length;k++){
         test = test[`${standard_key_child[k]}`];
       }
+      
+      if (Array.isArray(test)) {
+        console.log("배열입니다.");
+        if(key_index == ''){
+          query_status = `${standard_key_child[k-1]}는 배열입니다. 인덱스를 입력해주세요 :)`;
+          
+          throw query_status
+        }
+        test = test[key_index];
+      }
       obj = {};
       obj[`${standard_key_child[k-1]}`] = test;
+      console.log(obj);
       test = obj;
     }else{
       test = result.data[`${standard_key}`];

@@ -20,8 +20,8 @@ router.post('/', function (req, res, next) {
  */
 router.post('/success', async (req, res, err) => {
     
-    const temp = await axios(req.body.url_json, req.body.standard_key, req.body[`standard_key_child[]`]);
-    console.log(temp);
+    const temp = await axios(req.body.url_json, req.body.standard_key, req.body[`standard_key_child[]`], req.body.key_index);
+    
     /**
      * DB 관련
      */
@@ -115,16 +115,19 @@ router.post('/success', async (req, res, err) => {
          * 쿼리 성공 / 실패 처리 관련
         */
         if(query_status == false){
-            query_status = '퀴리 오류! 다시 확인 해주세요';
+            query_status = '오류! <쿼리문> 또는 <기준 키값>을 확인해주세요 :)';
             res.json({query_status});
-            throw '퀴리 오류! 다시 확인 해주세요';
+            throw '오류! 쿼리나 기준 키값을 확인해주세요 :)';
         }else{
             query_status = "쿼리 성공!";
         }
        
     }
    
-    res.json({query_status});
+    res.json({
+        query_status,
+        key_index : 1,
+    });
 });
 
 /**

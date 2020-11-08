@@ -1,4 +1,5 @@
-body {
+html,body {
+  height: 100%;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -19,10 +20,21 @@ a {
 .input_900px{width: 900px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
 
 
-/*
+/**
 * GNB
 */
 .gnb_wrap{background-color: rgb(39, 135, 245);height:50px; width: 100%;}
 .gnb_con{}
 .gnb_inner{margin-top: 15px;}
 .gnb_a{margin: 5px;text-decoration:none;color: rgb(255,255,255);font-weight: 400;}
+
+/**
+* CONTENTS
+*/
+.content_wrap{height: 100%;}
+.form_wrap{}
+.form_label{margin: 10px;}
+button{margin: 10px;padding: 7px 12px;border: none;border-radius: 5px;background-color: rgb(39, 135, 245);color: white;outline:none;cursor: pointer;}
+button:hover{background-color: royalblue;transition:ease-in-out 0.2s;}
+button:active{border: 0;outline: 0;}
+.url_json_btn_all{font-size: 20px;}
