@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-const Axios = async (url_json, standard_key, standard_key_child, key_index) => {
+const Axios = async (url_json, standard_key, standard_key_child, key_index,res) => {
   try {
     var result = await axios.get(url_json);
-
+   
     test = result.data;
-
+  
     /**
      * 키값이 하나일 때 처리
      */
@@ -16,6 +16,7 @@ const Axios = async (url_json, standard_key, standard_key_child, key_index) => {
       standard_key_child = temp;
     }
     test = test[`${standard_key}`];
+    check_object(test, standard_key, res);
     if (Array.isArray(test)) {
       console.log(`${standard_key}는 배열입니다.`);
     }
@@ -25,6 +26,7 @@ const Axios = async (url_json, standard_key, standard_key_child, key_index) => {
     if (standard_key_child) {
       for (var k = 0; k < standard_key_child.length; k++) {
         test = test[`${standard_key_child[k]}`];
+        check_object(test, standard_key_child[k], res);
       }
       /**
        * 최종 키값이 배열일때 처리
@@ -55,6 +57,16 @@ const Axios = async (url_json, standard_key, standard_key_child, key_index) => {
   } catch (error) {
     console.error(error);
     throw error;
+  }
+};
+
+const check_object = (test, object_key, res)=>{
+  if(test == undefined){
+      query_status = `${object_key} 기준 키가 없습니다 :(`;
+      res.json({
+        query_status
+      })
+      throw query_status;
   }
 };
 

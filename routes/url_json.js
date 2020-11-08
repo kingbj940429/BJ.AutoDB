@@ -19,8 +19,9 @@ router.post('/', function (req, res, next) {
  * 모든 컬럼에 데이터 삽입
  */
 router.post('/success', async (req, res, err) => {
-    
-    const temp = await axios(req.body.url_json, req.body.standard_key, req.body[`standard_key_child[]`], req.body.key_index);
+    check_table(req.body.table_name, res);
+    check_url(req.body.url_json, res);
+    const temp = await axios(req.body.url_json, req.body.standard_key, req.body[`standard_key_child[]`], req.body.key_index,res);
     
     /**
      * DB 관련
@@ -59,7 +60,7 @@ router.post('/success', async (req, res, err) => {
         for(var key2 in keyObj){
             key2+="_bj";
             keys.push(key2);
-            str += key2 + " TEXT(2000), ";
+            str += key2 + " TEXT, ";
         }
         break;
     }
@@ -69,6 +70,7 @@ router.post('/success', async (req, res, err) => {
     str = str.substr(0, str.length -1);//맨 뒤에 콤마 없애기  
     str = str + ");"
     console.log(str);
+    table_query = str;
     await dbPool(str);
 
     /**
@@ -121,12 +123,12 @@ router.post('/success', async (req, res, err) => {
         }else{
             query_status = "쿼리 성공!";
         }
-       
     }
-   
+    
     res.json({
         query_status,
-        key_index : 1,
+        table_query,
+        insert_query,
     });
 });
 
@@ -215,7 +217,23 @@ router.post('/success_part', async (req, res, err) => {
     res.json({query_status});
 });
 
-
-
+const check_table = (test, res)=>{
+    if(test == ""){
+        query_status = `테이블명을 입력해주세요 :)`;
+        res.json({
+          query_status
+        })
+        throw query_status;
+    }
+};
+const check_url = (test, res)=>{
+    if(test == ""){
+        query_status = `JSON URL을 입력해주세요 :)`;
+        res.json({
+          query_status
+        })
+        throw query_status;
+    }
+  };
 
 module.exports = router;

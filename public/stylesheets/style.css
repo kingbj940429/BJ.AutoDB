@@ -1,40 +1,28 @@
-html,body {
-  height: 100%;
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-
-.input_100px{width: 100px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_200px{width: 200px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_300px{width: 300px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_400px{width: 400px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_500px{width: 500px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_600px{width: 600px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_700px{width: 700px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_800px{width: 800px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-.input_900px{width: 900px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
-
 
 /**
 * GNB
 */
-.gnb_wrap{background-color: rgb(39, 135, 245);height:50px; width: 100%;}
+.gnb_wrap{background-color: rgb(39, 135, 245);height:50px; width: 100%;font-family: 'Do Hyeon', sans-serif;font-size: 25px;margin-bottom: 30px;}
 .gnb_con{}
-.gnb_inner{margin-top: 15px;}
-.gnb_a{margin: 5px;text-decoration:none;color: rgb(255,255,255);font-weight: 400;}
+.gnb_inner{margin-top: 7px;}
+.gnb_a{margin: 5px;text-decoration:none;color: rgb(255,255,255);}
+.gnb_a:hover{color: rgb(8, 4, 255);}
+/**
+* URL_JSON CONTENTS
+*/
+.form_wrap{}
+.warning{color: rgb(243, 64, 64);font-weight: 700;font-size: 13px;}
+.form_con{}
+.form_label{margin-top: 10px;font-weight: 700;font-size: 20px;}
+.url_json_btn_all{font-size: 20px;}
+.create_table_btn{margin-bottom: 50px;}
 
 /**
-* CONTENTS
+* HISTORY
 */
-.content_wrap{height: 100%;}
-.form_wrap{}
-.form_label{margin: 10px;}
-button{margin: 10px;padding: 7px 12px;border: none;border-radius: 5px;background-color: rgb(39, 135, 245);color: white;outline:none;cursor: pointer;}
-button:hover{background-color: royalblue;transition:ease-in-out 0.2s;}
-button:active{border: 0;outline: 0;}
-.url_json_btn_all{font-size: 20px;}
+.history_con{margin: 10px;padding-bottom: 100px;}
+.history_title{font-weight: 700;font-size: 20px;margin-bottom: 20px;}
+.history_inner{font-weight: 700;font-size: 16px;}
+.history_result{margin-bottom: 50px;}
+.history_table{margin-bottom: 50px;}
+.history_query{margin-bottom: 50px;}

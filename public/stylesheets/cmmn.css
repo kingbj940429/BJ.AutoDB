@@ -1,0 +1,25 @@
+html,body {height: 100%;margin: 0;padding:0px;font-family: 'Do Hyeon', sans-serif;font-family: 'Nanum Gothic', sans-serif;font-size: 14px;}
+a{color: #00B7FF;}
+.wrapper{position:relative;min-height:100%;}
+.content_wrap{padding:20px;}
+
+/**
+* BUTTON 관련
+*/
+button{font-size: 20px;margin: 10px;padding: 7px 12px;border: none;border-radius: 5px;background-color: rgb(39, 135, 245);color: white;outline:none;cursor: pointer;font-weight: 700;}
+button:hover{background-color: royalblue;transition:ease-in-out 0.2s;}
+button:active{border: 0;outline: 0;}
+.create_table_btn{}
+
+/**
+*  INPUT 관련
+*/
+.input_100px{width: 100px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_200px{width: 200px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_300px{width: 300px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_400px{width: 400px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_500px{width: 500px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_600px{width: 600px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_700px{width: 700px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_800px{width: 800px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}
+.input_900px{width: 900px;padding: 7px;border: 2px solid rgb(127, 127, 127);border-radius: 5px;margin: 10px;}

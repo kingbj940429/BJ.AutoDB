@@ -1,8 +1,12 @@
 gnb
     .gnb_wrap.col-12
         .gnb_con.mw-1200.col-center.col-12
-            .gnb_inner
-                a(href="/" method="post" class="gnb_a") 메인 이동
-                a(href="/" class="gnb_a") 테이블 생성
-                a(href="/" class="gnb_a") URL로 생성
+            .gnb_inner.col-12
+                .gnb_a.col-2
+                    a(href="/" method="post" class="gnb_a") 메인 이동
+                .gnb_a.col-2   
+                    a(href="/" method="get" class="gnb_a") 도움말
+                //- a(href="/" class="gnb_a") 테이블 생성
+                //- a(href="/" class="gnb_a") 쿼리문 테스트
+                //- a(href="/url_json" method="post" class="gnb_a") URL로 생성
             

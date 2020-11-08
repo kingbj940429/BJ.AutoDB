@@ -6,18 +6,18 @@ block content
         form(action="/" method="post" class="form")
           .form_con
               .form_label HOST
-              input(type="text" name="host" class="host" value="127.0.0.1")
+              input(type="text" name="host" class="host input_300px" value="127.0.0.1")
           .form_con
               .form_label USER
-              input(type="text" name="user" class="user" value="bjgg")
+              input(type="text" name="user" class="user input_300px" value="bjgg")
           .form_con
               .form_label PASSWORD
-              input(type="password" name="password" class="password" value="jiwon1234")
+              input(type="password" name="password" class="password input_300px" value="jiwon1234")
           .form_con      
               .form_label SCHEMA
-              input(type="text" name="schema" class="schema" value="bjgg")
-          button(type="submit" class="query") 버튼
-          button(type="submit" class='create_table') 테이블 생성
+              input(type="text" name="schema" class="schema input_300px" value="bjgg")
+          button(type="submit" class="query") 쿼리문 테스트
+          //- button(type="submit" class='create_table') 테이블 생성
           button(type="submit" class='url_json') URL JSON형식 테이블 생성
     script.
       $('.query').click((e)=>{
