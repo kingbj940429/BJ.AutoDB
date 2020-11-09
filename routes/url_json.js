@@ -53,7 +53,7 @@ router.post('/success', async (req, res, err) => {
     var keys= [];
     await dbPool(`DROP TABLE IF EXISTS ${req.body.table_name}`);
     
-    str = `CREATE TABLE ${req.body.table_name}(`;
+    str = `CREATE TABLE ${req.body.table_name}(standard_key VARCHAR(45) NOT NULL PRIMARY KEY,`;
     
     for(var key in temp){
         var keyObj = temp[key];
@@ -83,6 +83,7 @@ router.post('/success', async (req, res, err) => {
    
     for(var key in temp){
         var keyObj = temp[key];
+        insert_query += 'standard_key, ';
         for(var key2 in keyObj){
             keys.push(key2);
             str += key2 + "_bj, ";
@@ -92,13 +93,14 @@ router.post('/success', async (req, res, err) => {
     str = str.trim();//양쪽 공백 제거
     str = str.substr(0, str.length -1);//맨 뒤에 콤마 없애기
     insert_query_front = insert_query+str+") VALUES (";
-    
+   
     var result='';
     
     for(var key in temp){
         var str2 = '';
         insert_query = '';
         var keyObj = temp[key];
+        
         for(var k in keys){
             var temp_str = keyObj[`${keys[k]}`];
             
@@ -106,6 +108,7 @@ router.post('/success', async (req, res, err) => {
             temp_str = temp_str.replace(/\"/g,"");
             str2 += '"' + temp_str + '",';
         }
+        str2 = `'${key}', ` + str2;
         insert_query = insert_query+str+") VALUES (";
         str2 = str2.trim();//양쪽 공백 제거
         str2 = str2.substr(0, str2.length -1);//맨 뒤에 콤마 없애기  
