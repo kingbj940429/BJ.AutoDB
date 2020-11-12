@@ -36,11 +36,11 @@ for (var data in datas){
 
 3) 기준 키를 입력해줍니다.
 
-![BJ AutoTable_img_03](https://user-images.githubusercontent.com/63000843/98957761-e8487a80-2544-11eb-9417-661b244197fa.PNG)
+![BJ AutoTable_img_04](https://user-images.githubusercontent.com/63000843/98957758-e7174d80-2544-11eb-9f7f-4cd4f7cfa4b8.PNG)
 
 * BJ.AutoTable로 생성할 json 데이터
 
-![BJ AutoTable_img_04](https://user-images.githubusercontent.com/63000843/98957758-e7174d80-2544-11eb-9f7f-4cd4f7cfa4b8.PNG)
+![BJ AutoTable_img_03](https://user-images.githubusercontent.com/63000843/98957761-e8487a80-2544-11eb-9417-661b244197fa.PNG)
 
 * BJ.AutoTable로 생성한 테이블
 
@@ -94,3 +94,5 @@ info를 기준으로 hp, mp을 컬럼으로 가지는 테이블이 생성된다.
 ```
 1) 기준 키 값이 주키가 되도록 수정
 ```
+### 2020-11-13
+1) README, CSS, APP.js 수정
