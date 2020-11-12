@@ -21,6 +21,30 @@ for (var data in datas){
 4)잘못된 url 주소 처리
 ```
 
+# 실행화면
+![BJ AutoTable_img_01](https://user-images.githubusercontent.com/63000843/98956981-05c91480-2544-11eb-9c82-8c4495f9c745.PNG)
+
+1) 데이터베이스에 접속하기 위한 기본셋팅을 입력해줍니다.
+
+2) HOST, USER, PASSWORD, SCHEMA가 있습니다.
+
+![BJ AutoTable_img_02](https://user-images.githubusercontent.com/63000843/98956983-0661ab00-2544-11eb-8e1e-6696a57042f4.PNG)
+
+1) json 데이터가 있는 URL을 입력해줍니다.
+
+2) 생성할 테이블명 생성해줍니다.
+
+3) 기준 키를 입력해줍니다.
+
+![BJ AutoTable_img_03](https://user-images.githubusercontent.com/63000843/98957761-e8487a80-2544-11eb-9417-661b244197fa.PNG)
+
+* BJ.AutoTable로 생성할 json 데이터
+
+![BJ AutoTable_img_04](https://user-images.githubusercontent.com/63000843/98957758-e7174d80-2544-11eb-9f7f-4cd4f7cfa4b8.PNG)
+
+* BJ.AutoTable로 생성한 테이블
+
+
 # 작업 내역
 
 ### 2020-11-05

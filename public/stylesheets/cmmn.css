@@ -1,7 +1,7 @@
 html,body {height: 100%;margin: 0;padding:0px;font-family: 'Do Hyeon', sans-serif;font-family: 'Nanum Gothic', sans-serif;font-size: 14px;}
 a{color: #00B7FF;}
 .wrapper{position:relative;min-height:100%;}
-.content_wrap{padding:20px;}
+
 
 /**
 * BUTTON 관련
