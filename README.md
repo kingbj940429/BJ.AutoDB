@@ -1,6 +1,6 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkingbj940429%2FBJ.AutoDB&count_bg=%233D7CC8&title_bg=%23555555&icon=json.svg&icon_color=%23CDBD2D&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-# BJ.AutoDB :key:
+# :key: BJ.AutoDB 
 
 This is a web service that puts json-type data of Riot API into the database.
 
@@ -13,7 +13,7 @@ With BJ.AutoTable, you can :black_nib: :
 ![mysql2](https://img.shields.io/badge/mysql2-v2.2.5-informational)
 ![expres](https://img.shields.io/badge/express-v4.16.1-green)
 
-## Motivation :interrobang:
+## :interrobang: Motivation 
 
 You can create a BJ.GG by adding a huge amount of data, or by writing query statements directly to the current logic, as shown below.
 ```js
@@ -24,7 +24,7 @@ await dbPool('INSERT INTO VALUES');
 BUT I thought it was too inefficient to create a table. So hand it to the website
 I wanted to make it easy to put json URLs or query statements and create a table on its own.
 
-## Example of use :honey_pot:
+## :honey_pot: Example of use
 
 1) Enter the default settings for accessing the database.
 
