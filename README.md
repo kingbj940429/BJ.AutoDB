@@ -26,25 +26,25 @@ I wanted to make it easy to put json URLs or query statements and create a table
 
 ## Example of use
 
-1) 데이터베이스에 접속하기 위한 기본셋팅을 입력해줍니다.
+1) Enter the default settings for accessing the database.
 
-2) HOST, USER, PASSWORD, SCHEMA가 있습니다.
+2) There are HOST, USER, PASSWORD, SCHEMA
 
 ![BJ AutoTable_img_01](https://user-images.githubusercontent.com/63000843/98956981-05c91480-2544-11eb-9c82-8c4495f9c745.PNG)
 
-1) json 데이터가 있는 URL을 입력해줍니다.
+4) json Enter URL with data.
 
-2) 생성할 테이블명 생성해줍니다.
+5) Generates the table name to generate.
 
-3) 기준 키를 입력해줍니다.
+6) Enter the reference key(Korean 참조키).
 
 ![BJ AutoTable_img_02](https://user-images.githubusercontent.com/63000843/98956983-0661ab00-2544-11eb-8e1e-6696a57042f4.PNG)
 
-* BJ.AutoTable로 생성할 json 데이터
+* json data(Riot API Data) to be generated with BJ.AutoTable
 
 ![BJ AutoTable_img_04](https://user-images.githubusercontent.com/63000843/98957758-e7174d80-2544-11eb-9f7f-4cd4f7cfa4b8.PNG)
 
-* BJ.AutoTable로 생성한 테이블
+* Table created with BJ.AutoTable
 
 ![BJ AutoTable_img_03](https://user-images.githubusercontent.com/63000843/98957761-e8487a80-2544-11eb-9417-661b244197fa.PNG)
 
