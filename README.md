@@ -13,7 +13,7 @@ With BJ.AutoTable, you can :black_nib: :
 ![mysql2](https://img.shields.io/badge/mysql2-v2.2.5-informational)
 ![expres](https://img.shields.io/badge/express-v4.16.1-green)
 
-## Motivation
+## Motivation :interrobang:
 
 You can create a BJ.GG by adding a huge amount of data, or by writing query statements directly to the current logic, as shown below.
 ```js
@@ -24,7 +24,7 @@ await dbPool('INSERT INTO VALUES');
 BUT I thought it was too inefficient to create a table. So hand it to the website
 I wanted to make it easy to put json URLs or query statements and create a table on its own.
 
-## Example of use
+## Example of use :honey_pot:
 
 1) Enter the default settings for accessing the database.
 
