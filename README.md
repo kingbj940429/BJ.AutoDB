@@ -1,4 +1,13 @@
-# 설명
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkingbj940429%2FBJ.AutoDB&count_bg=%233D7CC8&title_bg=%23555555&icon=json.svg&icon_color=%23CDBD2D&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+# BJ.AutoDB
+
+This is a web service that puts json-type data of Riot API into the database.
+
+![axios](https://img.shields.io/badge/axios-v0.21.0-brightgreen)
+![mysql2](https://img.shields.io/badge/mysql2-v2.2.5-informational)
+![expres](https://img.shields.io/badge/express-v4.16.1-green)
+
 * 목적
 ```js
 BJ.GG를 만들다가 엄청난 데이터 양을 일일이 넣거나 현재 로직에  아래 처럼 직접 쿼리문을 써서
