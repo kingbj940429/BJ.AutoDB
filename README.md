@@ -1,10 +1,10 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkingbj940429%2FBJ.AutoDB&count_bg=%233D7CC8&title_bg=%23555555&icon=json.svg&icon_color=%23CDBD2D&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-# BJ.AutoDB
+# BJ.AutoDB :key:
 
 This is a web service that puts json-type data of Riot API into the database.
 
-With BJ.AutoTable, you can:
+With BJ.AutoTable, you can :black_nib: :
 
 1) Json data in url form can be easily made into a table.
 2) MySQL query statements can be easily processed on the website with simple input.
